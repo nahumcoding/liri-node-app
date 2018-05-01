@@ -13,6 +13,7 @@ var fs = require("fs");
 var keys = require("./keys.js");
 var request = require("request");
 var inquirer = require('inquirer');
+var moment = require('moment');
 
 
 var spotify = new Spotify(keys.spotify);
@@ -81,7 +82,7 @@ function myTweets() {
 	appendType(tweetType);
 	newLine();
 
-	client.get('statuses/user_timeline', {screen_name: 'JoshUMCode'}, function(error, tweets, response){
+	client.get('statuses/user_timeline', {screen_name: 'codeyourway'}, function(error, tweets, response){
 		if (error){
 			log(error.message)
 		}
@@ -259,6 +260,7 @@ function inquireSong() {
 function inquireMovie() {
 	inquirer.prompt([
 		{
+
 			type: 'input',
 			message: 'Tell me the movie you want:',
 			name: 'movieTitle'
